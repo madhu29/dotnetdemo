@@ -22,6 +22,13 @@ stages:
   jobs:
   - job: 'Build'
     steps:
+    
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: 6.0.x
+        installationPath: $(Agent.ToolsDirectory)/dotnet
     - task: NodeTool@0
       inputs:
         versionSpec: '14.x' 
