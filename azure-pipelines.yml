@@ -9,7 +9,7 @@ trigger:
 - master
 
 pool:
-  name: agentpool123
+  name: myagent
 
 variables:
   buildConfiguration: 'Release'
@@ -38,12 +38,6 @@ stages:
     - script: dotnet publish -f $(dotNetFramework) -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
       displayName: Publish Project 
 
-    - task: Npm@1
-      displayName: 'Client Tests'
-      inputs:
-        command: 'custom'
-        workingDir: 'ClientApp'
-        customCommand: 'run test'
     
     - task: PublishBuildArtifacts@1
       inputs:
