@@ -9,14 +9,14 @@ trigger:
 - master
 
 pool:
-  name: Azure Pipelines
+  name: agentpool123
 
 
 
 variables:
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
-  dotNetVersion: '6.0.300'
+  dotNetVersion: '6.0.301'
   targetRuntime: 'linux-x64'
 
 stages:
