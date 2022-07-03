@@ -11,10 +11,12 @@ trigger:
 pool:
   name: Azure Pipelines
 
+
+
 variables:
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
-  dotNetVersion: '6.0.300'
+  dotNetVersion: '6.0.301'
   targetRuntime: 'linux-x64'
 
 stages:
@@ -38,12 +40,6 @@ stages:
     - script: dotnet publish -f $(dotNetFramework) -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
       displayName: Publish Project 
 
-    - task: Npm@1
-      displayName: 'Client Tests'
-      inputs:
-        command: 'custom'
-        workingDir: 'ClientApp'
-        customCommand: 'run test'
     
     - task: PublishBuildArtifacts@1
       inputs:
